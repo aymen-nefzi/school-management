@@ -1,0 +1,199 @@
+<main>
+	<nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
+    
+        <!-- Navbar brand for xl START -->
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="index-2.html">
+                <img class="navbar-brand-item" src="assets/images/logo-light.svg" alt="">
+            </a>
+        </div>
+        <!-- Navbar brand for xl END -->
+        
+        <div class="offcanvas offcanvas-start flex-row custom-scrollbar h-100" data-bs-backdrop="true" tabindex="-1" id="offcanvasSidebar">
+            <div class="offcanvas-body sidebar-content d-flex flex-column bg-dark">
+    
+                <!-- Sidebar menu START -->
+                <ul class="navbar-nav flex-column" id="navbar-sidebar">
+                    
+                    <!-- Menu item 1 -->
+                    <li class="nav-item"><a routerLink="/admin-dashboard" class="nav-link "><i class="far fa-chart-bar fa-fw me-2"></i>manage classrooms</a></li>
+    
+                    <!-- Menu item 3 -->
+                    <li class="nav-item"> <a class="nav-link active" routerLink="/students-list"><i class="fas fa-user-graduate fa-fw me-2"></i>Students</a></li>
+                    
+                    <!-- Menu item 4 -->
+                    <li class="nav-item">
+                        <a class="nav-link"  routerLink="/teachers-list"  aria-expanded="false" aria-controls="collapseinstructors">
+                            <i class="fas fa-user-tie fa-fw me-2"></i>Instructors
+                        </a>
+                    </li>
+                    <li  class="nav-item" >
+                        <button class="nav-link btn btn-danger "(click)="signout()" >Sign Out</button>
+                    </li>
+                    
+                </ul>
+                <!-- Sidebar menu end -->
+    
+                <!-- Sidebar footer START -->
+                
+                <div class="px-3 mt-auto pt-3">
+                    <div class="d-flex align-items-center justify-content-between text-primary-hover">
+                            <a class="h5 mb-0 text-body" href="admin-setting.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
+                                <i class="bi bi-gear-fill"></i>
+                            </a>
+                            <a class="h5 mb-0 text-body" href="index-2.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                            <a class="h5 mb-0 text-body" routerLink="sign-in.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign out">
+                                <i class="bi bi-power"></i>
+                            </a>
+                    </div>
+                </div>
+                <!-- Sidebar footer END -->
+                
+            </div>
+        </div>
+    </nav>
+    <section class="pt-0">
+        <!-- Main banner background image -->
+        <div class="container-fluid px-0">
+            <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+                <h2 style="text-align: center;color:white;padding-top:4%">Students List</h2>
+            </div>
+        </div>
+        
+        <div class="container mt-n4">
+            <div class="row">
+                <!-- Profile banner START -->
+                <div class="col-12">
+                    
+                    <!-- Profile banner END -->
+    
+                    <!-- Advanced filter responsive toggler START -->
+                    <!-- Divider -->
+                    <hr class="d-xl-none">
+                    <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                        <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Main Banner START -->
+    <div class="page-content" class="center" style="margin-left: 17.5%;">
+    
+    <!-- =======================
+    Main Banner END -->
+    
+    <!-- =======================
+    Inner part START -->
+    <section class="pt-0" >
+        <div class="container">
+            <div class="row">
+    
+                <!-- Left sidebar START -->
+                
+                <!-- Left sidebar END -->
+    
+                <!-- Main content START -->
+                <div class="col-lg-12">
+                    <!-- Card START -->
+                    <div class="card border bg-transparent rounded-3">
+                        <!-- Card header START -->
+                        
+                        <!-- Card header END -->
+    
+                        <!-- Card body START -->
+                        <div class="card-body">
+    
+                            <!-- Search and select START -->
+                            <div class="row g-3 align-items-center justify-content-between mb-4">
+                                <!-- Search -->
+                                <div class="col-md-12">
+                                    <form class="rounded position-relative">
+                                        <input class="form-control pe-5 bg-transparent" type="text" placeholder="Search"  [(ngModel)]="term"  id="" name="search">
+                                       
+                                    </form>
+                                </div>
+    
+                                <!-- Select option -->
+                                
+                            </div>
+                            <!-- Search and select END -->
+    
+                            <!-- Student list table START -->
+                            <div class="table-responsive border-0">
+                                <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" >
+                                    <!-- Table head -->
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 rounded-start">Student name</th>
+                                            <th scope="col" class="border-0">Student last name</th>
+                                            <th scope="col" class="border-0">Speciality</th>
+                                            <th scope="col" class="border-0">Level</th>
+                                            <th scope="col" class="border-0 rounded-end" >Action</th>
+                                        </tr>
+                                    </thead>
+    
+                                    <!-- Table body START -->
+                                    <tbody>
+                                        <!-- Table item -->
+                                        <tr *ngFor="let student of students | tablefilter:term">
+                                            <!-- Table data -->
+                                            <td >
+                                                <div class="d-flex align-items-center position-relative">
+                                                    <!-- Image -->
+                                                  
+                                                    <div class="mb-0 ms-2">
+                                                        <!-- Title -->
+                                                        <h6 class="mb-0"><a href="#" class="stretched-link">{{student.firstName}}</a></h6>
+                                                        <!-- tel -->
+                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>{{student.Tel}}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+    
+                                            <!-- Table data -->
+                                            <td class="text-center text-sm-start">
+                                                <div class=" overflow-hidden">
+                                                    <h6 class="mb-0">{{student.lastName}}</h6>
+                                                    
+                                                </div>
+                                            </td>
+    
+                                            <!-- Table data -->
+                                            <td>{{student.speciality}}</td>
+    
+                                            <!-- Table data -->
+                                            <td>{{student.level}}</td>
+    
+                                            <!-- Table data -->
+                                            <td>
+                                                <button class="btn btn-danger" (click)="deleteStudent(student._id)">Delete</button>&nbsp;
+                                                <button class="btn btn-info" (click)="editStudent(student._id)">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- Table body END -->
+                                </table>
+                            </div>
+                            <!-- Student list table END -->
+                        </div>
+                        <!-- Card body START -->
+                    </div>
+                    <!-- Card END -->
+                </div>
+                <!-- Main content END -->
+            </div><!-- Row END -->
+        </div>
+    </section>
+    </div>
+    <!-- =======================
+    Inner part END -->
+    
+    </main>

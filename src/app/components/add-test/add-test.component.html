@@ -1,0 +1,287 @@
+
+<main>
+	
+<!-- =======================
+Main Banner START -->
+<section class="pt-0">
+	<!-- Main banner background image -->
+	<div class="container-fluid px-0">
+		<div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+			<h2 style="text-align: center;color:white;padding-top:4%;font-family:cursive">Teacher : {{ConnectedUser.firstName}} {{ConnectedUser.lastName}} <i class="bi bi-patch-check-fill text-info small"></i></h2>
+		</div>
+	</div>
+	<div class="container mt-n4">
+		<div class="row">
+			<!-- Profile banner START -->
+			<div class="col-12">
+			
+				<!-- Profile banner END -->
+				<div class="card bg-transparent card-body p-0" style="float: right;margin-top:2%">
+					<div class="row d-flex justify-content-between;">
+						<!-- Avatar -->
+						
+						<!-- Profile info -->
+						<div class="col d-md-flex justify-content-between align-items-center mt-4">
+							
+							<!-- Button -->
+							<div class="d-flex align-items-center mt-2 mt-md-0">
+								<a href="#" class="btn btn-sm btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addQuiz">Add New Quiz</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Advanced filter responsive toggler START -->
+				<!-- Divider -->
+				<hr class="d-xl-none">
+				<div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+					<a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+					<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+						<i class="fas fa-sliders-h"></i>
+					</button>
+				</div>
+				<!-- Advanced filter responsive toggler END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Inner part START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row">
+			<!-- Left sidebar START -->
+			<div class="col-xl-3">
+				<!-- Responsive offcanvas body START -->
+				<div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+					<!-- Offcanvas header -->
+					<div class="offcanvas-header bg-light">
+						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+						<button  type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+					</div>
+					<!-- Offcanvas body -->
+					<div class="offcanvas-body p-3 p-xl-0">
+						<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+							<!-- Dashboard menu -->
+							<div class="list-group list-group-dark list-group-borderless">
+								<a class="list-group-item " routerLink="teacher-dashboard/:idTeacherConnected"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+								<a class="list-group-item active" routerLink="/addTest"><i class="bi bi-question-diamond fa-fw me-2"></i>Add Test</a>
+								<a class="list-group-item" routerLink="/courses"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>  
+								<a class="list-group-item" href="instructor-order.html"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>     
+								<a class="list-group-item" href="instructor-setting.html"><i class="bi bi-gear fa-fw me-2"></i>Settings</a>
+								<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+								<button class="nav-link btn btn-danger "(click)="signout()" style="color: white;" >Sign Out</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Responsive offcanvas body END -->
+			</div>
+			<!-- Left sidebar END -->
+
+			<!-- Main content START -->
+			<div class="col-xl-9">
+				<!-- Card START -->
+				<div class="card border bg-transparent rounded-3">
+					<!-- Card header START -->
+					<div class="card-header bg-transparent border-bottom px-3">
+						<div class="row g-4 align-items-center">
+							<div class="col-md-2">
+								<img src="assets/images/courses/4by3/01.jpg" class="rounded-2" alt="Card image">
+							</div>
+							<div class="col-md-10">
+								<!-- Title -->
+								<h3 class="card-title mb-0"><a (click)="displayTests()" class="btn btn-info" >DISPLAY TESTS :</a></h3>
+							</div>
+						</div>
+					</div>
+					<!-- Card header END -->
+
+					<!-- Card body START -->
+					<div class="card-body p-4">
+
+						<!-- Accordion START -->
+						<div class="accordion accordion-icon accordion-bg-light" id="accordionExample">
+							<div class="accordion-item mb-3" *ngFor="let test of displayTest let i=index">
+								<h6 class="accordion-header" id="headingOne">
+									<button class="accordion-button rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<span class="text-secondary fw-bold me-3">{{i+1}}</span>  
+										<span class="fw-bold">{{test.question}}</span> 
+									</button>
+								</h6>
+								<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body mt-3">
+										<!-- Answer options -->
+										<p class="mb-3"><b class="text-dark">A</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{test.option1}}</p>
+										<p class="mb-3"><b class="text-dark">B</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{test.option2}}</p>
+										<p class="mb-3"><b class="text-dark">C</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{test.option3}}</p>
+										
+
+										
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- Accordion END -->
+						
+					</div>
+					<!-- Card body START -->
+				</div>
+				<!-- Card END -->
+
+				<!-- Student quiz result START -->
+				<div class="card border bg-transparent rounded-3 mt-4" *ngIf="note!=0">
+					<!-- Card header START -->
+					<div class="card-header bg-transparent border-bottom">
+						<h3 class="mb-0">Student test result :</h3>
+					</div>
+					<!-- Card header END -->
+
+					<!-- Card body START -->
+					<div class="card-body">
+
+
+						<!-- Student list table START -->
+						<div class="table-responsive border-0">
+							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+								<!-- Table head -->
+								<thead>
+									<tr>
+										<th scope="col" class="border-0 rounded-start">Student name</th>
+										<th scope="col" class="border-0">Course name</th>
+										<th scope="col" class="border-0">Note</th>
+										<th scope="col" class="border-0">Answer</th>
+										
+									</tr>
+								</thead>
+
+								<!-- Table body START -->
+								<tbody>
+									<!-- Table item -->
+									<tr *ngFor="let student of students | filterMoyenne ">
+										<!-- Table data -->
+										<td>
+											<div class="d-flex align-items-center">
+												<!-- Image -->
+												
+												<div>
+													<!-- Title -->
+													<h6 class="mb-0"><a href="#">{{student.firstName}} {{student.lastName}} </a></h6>
+												</div>
+											</div>
+										</td>
+
+										<!-- Table data -->
+										<td>
+											<h6 class="table-responsive-title mt-2 mt-md-0 mb-0"><a href="#">{{student.speciality}}</a></h6>
+										</td>
+
+										<!-- Table data -->
+										<td>{{student.note}}</td>
+										<td>{{student.reponse}}</td>
+										
+										
+										
+
+										<!-- Table data -->
+										
+									</tr>							
+								</tbody>
+								<!-- Table body END -->
+							</table>
+						</div>
+						<!-- Student list table END -->
+
+						<!-- Pagination START -->
+						
+						<!-- Pagination END -->
+					</div>
+					<!-- Card body START -->
+				</div>
+				<!-- Student quiz result END -->
+
+			</div>
+			<!-- Main content END -->
+		</div><!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Inner part END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+
+<!-- =======================
+Footer END -->
+
+<!-- Edit course modal START -->
+
+<!-- Edit course modal START -->
+
+<!-- Add course modal START -->
+<div class="modal fade" id="addQuiz" tabindex="-1" aria-labelledby="addQuizLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-dark">
+				<h5 class="modal-title text-white" id="addQuizLabel">Add New Test</h5>
+				
+				<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                
+			</div>
+			<div class="modal-body">
+				<form class="row text-start g-3" #addTestForm="ngForm" >
+
+					<!-- Question -->
+					<div class="col-12">
+						<label class="form-label">Question</label>
+						<input class="form-control" type="text" name="question" placeholder="Write a question" [(ngModel)]="test.question" >
+					</div>
+
+					<!-- Answer options START -->
+					<div class="col-6">
+						<label class="form-label">Option 1</label>
+						<input class="form-control" type="text" name="option1" placeholder="Write an option" [(ngModel)]="test.option1">
+					</div>
+
+					<div class="col-6">
+						<label class="form-label">Option 2</label>
+						<input class="form-control" type="text" name="option2"placeholder="Write an option" [(ngModel)]="test.option2">
+					</div>
+
+					<div class="col-6">
+						<label class="form-label">Option 3</label>
+						<input class="form-control" type="text" name="option3" placeholder="Write an option" [(ngModel)]="test.option3">
+					</div>
+                    <div class="col-6">
+						<label class="form-label">Answer </label>
+						<input class="form-control" type="text" name="answer" placeholder="Write the answer" [(ngModel)]="test.answer">
+					</div>
+
+					
+					<!-- Answer options END -->
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-success my-0" (click)="addTest()">Add Quiz</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Add course modal START -->
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- Bootstrap JS -->
+
+
+
+
+<!-- Mirrored from eduport.webestica.com/instructor-quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Sep 2022 15:21:55 GMT -->

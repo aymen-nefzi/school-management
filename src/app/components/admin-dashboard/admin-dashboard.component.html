@@ -1,0 +1,247 @@
+<main>
+	
+    <!-- Sidebar START -->
+    <nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
+    
+        <!-- Navbar brand for xl START -->
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="index-2.html">
+                <img class="navbar-brand-item" src="assets/images/logo-light.svg" alt="">
+            </a>
+        </div>
+        <!-- Navbar brand for xl END -->
+        
+        <div class="offcanvas offcanvas-start flex-row custom-scrollbar h-100" data-bs-backdrop="true" tabindex="-1" id="offcanvasSidebar">
+            <div class="offcanvas-body sidebar-content d-flex flex-column bg-dark">
+    
+                <!-- Sidebar menu START -->
+                <ul class="navbar-nav flex-column" id="navbar-sidebar">
+                    
+                    <!-- Menu item 1 -->
+                    <li class="nav-item"><a routerLink="/admin-dashboard" class="nav-link active"><i class="far fa-chart-bar fa-fw me-2"></i>manage classrooms</a></li>
+    
+                    <!-- Menu item 3 -->
+                    <li class="nav-item"> <a class="nav-link" routerLink="/students-list"><i class="fas fa-user-graduate fa-fw me-2"></i>Students</a></li>
+                    
+                    <!-- Menu item 4 -->
+                    <li class="nav-item">
+                        <a class="nav-link"  routerLink="/teachers-list"  aria-expanded="false" aria-controls="collapseinstructors">
+                            <i class="fas fa-user-tie fa-fw me-2"></i>Instructors
+                        </a>
+                    </li>
+                    <li  class="nav-item" >
+                        <button class="nav-link btn btn-danger "(click)="signout()" >Sign Out</button>
+                    </li>
+                    
+                    
+                </ul>
+                <!-- Sidebar menu end -->
+    
+                <!-- Sidebar footer START -->
+                
+                <div class="px-3 mt-auto pt-3">
+                    <div class="d-flex align-items-center justify-content-between text-primary-hover">
+                            <a class="h5 mb-0 text-body" href="admin-setting.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
+                                <i class="bi bi-gear-fill"></i>
+                            </a>
+                            <a class="h5 mb-0 text-body" href="index-2.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                            <a class="h5 mb-0 text-body" routerLink="sign-in.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign out">
+                                <i class="bi bi-power"></i>
+                            </a>
+                    </div>
+                </div>
+                <!-- Sidebar footer END -->
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar END -->
+    
+    <!-- Page content START -->
+    <div class="page-content">
+        
+        <!-- Top bar START -->
+       
+        <!-- Top bar END -->
+    
+        <!-- Page main content START -->
+        <div class="page-content-wrapper border">
+    
+            <!-- Title -->
+            <div class="row mb-3">
+                <div class="col-12 d-sm-flex justify-content-between align-items-center">
+                    <h1 class="h3 mb-2 mb-sm-0">Manage Classrooms</h1>
+                    <!-- <a href="instructor-create-course.html" class="btn btn-sm btn-primary mb-0">Create a Course</a> -->
+                </div>
+            </div>
+    
+            <!-- Course boxes START -->
+            <div class="row g-4 mb-4">
+                <!-- Course item -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
+                        <h6>Total teachers</h6>
+                        <h2 class="mb-0 fs-1 text-primary">{{totalTeachers}}</h2>
+                    </div>
+                </div>
+    
+                <!-- Course item -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
+                        <h6>Total students</h6>
+                        <h2 class="mb-0 fs-1 text-success">{{totalStudents}}</h2>
+                    </div>
+                </div>
+    
+                <!-- Course item -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="text-center p-4  bg-warning bg-opacity-15 border border-warning rounded-3">
+                        <h6>Total Courses</h6>
+                        <h2 class="mb-0 fs-1 text-warning">200</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Course boxes END -->
+    
+            <!-- Card START -->
+            <div class="card bg-transparent border">
+    
+                <!-- Card header START -->
+                <div class="card-header bg-light border-bottom">
+                    <!-- Search and select START -->
+                    <div class="row g-3 align-items-center justify-content-between">
+                        <!-- Search bar -->
+                        <div class="col-md-8">
+                            <form class="rounded position-relative">
+                                <input class="form-control pe-5 bg-transparent" type="text" name="search" [(ngModel)]="term" placeholder="Search" aria-label="Search">
+                                
+                            </form>
+                        </div>
+    
+                        <!-- Select option -->
+                        <div class="col-md-3">
+                            <!-- Short by filter -->
+                            
+                        </div>
+                    </div>
+                    <!-- Search and select END -->
+                </div>
+                <!-- Card header END -->
+    
+                <!-- Card body START -->
+                <div class="card-body" >
+                    <!-- Course table START -->
+                    <div class="table-responsive border-0 rounded-3">
+                        <!-- Table START -->
+                        <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" *ngIf="clicked=='0'">
+                            <!-- Table head -->
+                            <thead>
+                                <tr>    
+                                    <th scope="col" class="border-0 rounded-start">Teacher first name</th>
+                                    <th scope="col" class="border-0">Teacher last name</th>
+                                    <th scope="col" class="border-0">role</th>
+                                    <th scope="col" class="border-0">speciality</th>
+                                    <th scope="col" class="border-0">level</th>                                    
+                                    <th scope="col" class="border-0 rounded-end">Action</th>
+                                </tr>
+                            </thead>
+                            
+                            <!-- Table body START -->
+                            <tbody>
+                                
+                                <!-- Table row -->
+                              <tr *ngFor="let teacher of teachers | tablefilter:term">
+                                <td>{{teacher.firstName}}</td>
+                                <td>{{teacher.lastName}}</td>
+                                <td>{{teacher.role}}</td>
+                                <td>{{teacher.speciality}}</td>
+                                <td>{{teacher.level}}</td>
+                                <td><button class="btn btn-info" (click)="choose(teacher._id)">choose</button></td>
+                              </tr>
+    
+                              
+    
+                            </tbody>
+                            <!-- Table body END -->
+                        </table>
+                        <div *ngIf="clicked=='1'">
+                            <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+                                <!-- Table head -->
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 rounded-start">Student name</th>
+                                        <th scope="col" class="border-0">Student last name</th>
+                                        <th scope="col" class="border-0">Speciality</th>
+                                        <th scope="col" class="border-0">Level</th>
+                                        <th scope="col" class="border-0 rounded-end">Action</th>
+                                    </tr>
+                                </thead>
+
+                                <!-- Table body START -->
+                                <tbody>
+                                    <!-- Table item -->
+                                    <tr *ngFor="let student of students | tablefilter:term">
+                                        <!-- <ng-container *ngIf="student.level==object.level"> -->
+                                        <!-- Table data -->
+                                        <td >
+                                            <div class="d-flex align-items-center position-relative">
+                                                <!-- Image -->
+                                                
+                                                <div class="mb-0 ms-2">
+                                                    <!-- Title -->
+                                                    <h6 class="mb-0"><a href="#" class="stretched-link">{{student.firstName}}</a></h6>
+                                                    <!-- tel -->
+                                                    <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>{{student.Tel}}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td class="text-center text-sm-start">
+                                            <div class=" overflow-hidden">
+                                                <h6 class="mb-0">{{student.lastName}}</h6>
+                                                
+                                            </div>
+                                        </td>
+
+                                        <!-- Table data -->
+                                        <td>{{student.speciality}}</td>
+
+                                        <!-- Table data -->
+                                        <td>{{student.level}}</td>
+
+                                        <!-- Table data -->
+                                        <td>
+                                            <input type="checkbox" [checked]="student.checked" (change)="student.checked = !student.checked">
+                                        </td>
+                                    <!-- </ng-container> -->
+                                    </tr>
+                                </tbody>
+                                <!-- Table body END -->
+                            </table>
+                         <button class="btn btn-info" style="margin-left: 45%;" (click)="submit()">submit</button> 
+                        </div>
+                        <!-- Table END -->
+                    </div>
+                    <!-- Course table END -->
+                </div>
+                <!-- Card body END -->
+    
+                <!-- Card footer START -->
+                <div class="card-footer bg-transparent pt-0">
+                    <!-- Pagination START -->
+                    
+                    <!-- Pagination END -->
+                </div>
+                <!-- Card footer END -->
+            </div>
+            <!-- Card END -->
+        </div>
+        <!-- Page main content END -->
+    
+    </div>
+    <!-- Page content END -->
+    
+    </main>

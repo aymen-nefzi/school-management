@@ -1,0 +1,183 @@
+<main>
+	
+    <!-- =======================
+    Page Banner START -->
+    <section class="pt-0">
+        <div class="container-fluid px-0">
+            <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+                <h2 style="text-align: center;color:white;padding-top:4%;font-family:cursive">Student : {{student.firstName}} {{student.lastName}} <i class="bi bi-patch-check-fill text-info small"></i></h2>
+            </div>
+        </div>
+        <div class="container mt-n4">
+            <div class="row">
+                <div class="col-12">
+                    
+    
+                    <!-- Advanced filter responsive toggler START -->
+                    <!-- Divider -->
+                    <hr class="d-xl-none">
+                    <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                        <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Page Banner END -->
+    
+    <!-- =======================
+    Page content START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+    
+                <!-- Left sidebar START -->
+                <div class="col-xl-3">
+                    <!-- Responsive offcanvas body START -->
+                    <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+                        <!-- Offcanvas header -->
+                        <div class="offcanvas-header bg-light">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                            <button  type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+                        </div>
+                        <!-- Offcanvas body -->
+                        <div class="offcanvas-body p-3 p-xl-0">
+                            <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                <!-- Dashboard menu -->
+                                <div class="list-group list-group-dark list-group-borderless">
+                                    <a class="list-group-item active" href="student-dashboard.html"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Tests</a>
+                                    
+                                    <a class="list-group-item" href="student-course-list.html"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                    
+                                 
+                                    
+                                    <a class="list-group-item" href="student-bookmark.html"><i class="bi bi-cart-check fa-fw me-2"></i>Wishlist</a>
+                                    <a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
+                                    
+                                    <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+                                    <button class="nav-link btn btn-danger "(click)="signout()" style="color: white;">Sign Out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Responsive offcanvas body END -->
+                </div>
+                <!-- Left sidebar END -->
+    
+                <!-- Main content START -->
+                <div class="col-xl-9">
+    
+                    <!-- Counter boxes START -->
+                 
+                    <!-- Counter boxes END -->
+    
+                    <div class="card bg-transparent border rounded-3">
+                        <!-- Card header START -->
+                        <div class="card border bg-transparent rounded-3">
+                            <!-- Card header START -->
+                            <div class="card-header bg-transparent border-bottom px-3">
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-md-2">
+                                        <img src="assets/images/courses/4by3/01.jpg" class="rounded-2" alt="Card image">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <!-- Title -->
+                                        <h3 class="card-title mb-0"><a> TESTS :</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card header END -->
+        
+                            <!-- Card body START -->
+                            <div class="card-body p-4">
+        
+                                <!-- Accordion START -->
+                                <form #submitTestForm="ngForm" (ngSubmit)="submitTest()">
+                                    <div class="accordion accordion-icon accordion-bg-light" id="accordionExample"  *ngFor="let test of testFinal let i=index">
+                                        <div class="accordion-item mb-3" >
+                                            <h6 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <span class="text-secondary fw-bold me-3">{{i+1}}</span>  
+                                                    <span class="fw-bold" >{{test.question}}</span> 
+                                                </button>
+                                            </h6>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body mt-3">
+                                                    <!-- Answer options -->
+                                                    <div  >
+                                                        
+                                                        
+                                                        <h6>Click below :</h6>
+                                                        <select  class="form-control"  [(ngModel)]="tableauReponse[i]" name="{{i}}">
+                                                                    
+                                                            
+                                                            
+                                                            <option value="{{test.option1}}" style="text-align: center;">{{test.option1}}</option>
+                                                            <option value="{{test.option2}}" style="text-align: center;">{{test.option2}}</option>
+                                                            <option value="{{test.option3}}" style="text-align: center;">{{test.option3}}</option>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <button class="btn btn-info-soft btn-sm mb-0" type="submit">Submit</button>
+                                  
+                                </form>
+                                
+                                <!-- Accordion END -->
+                                
+                            </div>
+                            <!-- Card body START -->
+                        </div>
+                        
+                        <!-- Card body START -->
+                    </div>
+
+                <!-- Main content END -->
+                </div><!-- Row END -->
+            </div>
+        </div>	
+        <div *ngIf="score!=0" style=" margin-left: 57%;">
+                                    
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Check Score
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Score</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>Your Score Is : {{score}}</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+        
+    </div>
+    </section>
+    <!-- =======================
+    Page content END -->
+    
+    </main>

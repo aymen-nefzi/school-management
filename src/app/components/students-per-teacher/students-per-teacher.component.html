@@ -1,0 +1,188 @@
+<main>
+	
+    <!-- =======================
+    Main Banner START -->
+    <section class="pt-0">
+        <!-- Main banner background image -->
+        <div class="container-fluid px-0">
+            <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+                <h2 style="text-align: center;color:white;padding-top:4%;font-family:cursive">Students List</h2>
+            </div>
+        </div>
+        <div class="container mt-n4">
+            <div class="row">
+                <!-- Profile banner START -->
+                <div class="col-12">
+                    
+                    <!-- Profile banner END -->
+    
+                    <!-- Advanced filter responsive toggler START -->
+                    <!-- Divider -->
+                    <hr class="d-xl-none">
+                    <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                        <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Main Banner END -->
+    
+    <!-- =======================
+    Inner part START -->
+    <section class="pt-0">
+        <div class="container">
+            <div class="row">
+    
+                <!-- Left sidebar START -->
+                <div class="col-xl-3">
+                    <!-- Responsive offcanvas body START -->
+                    <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+                        <!-- Offcanvas header -->
+                        <div class="offcanvas-header bg-light">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                            <button  type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+                        </div>
+                        <!-- Offcanvas body -->
+                        <div class="offcanvas-body p-3 p-xl-0">
+                            <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                <!-- Dashboard menu -->
+                                <div class="list-group list-group-dark list-group-borderless">
+                                    <a class="list-group-item" href="instructor-dashboard.html"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+                                    <a class="list-group-item" href="instructor-manage-course.html"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                    <a class="list-group-item" href="instructor-quiz.html"><i class="bi bi-question-diamond fa-fw me-2"></i>Quiz</a>
+                                    <a class="list-group-item" href="instructor-earning.html"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
+                                    <a class="list-group-item active" href="instructor-studentlist.html"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+                                    <a class="list-group-item" href="instructor-order.html"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+                                    <a class="list-group-item" href="instructor-review.html"><i class="bi bi-star fa-fw me-2"></i>Reviews</a>
+                                    <a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
+                                    <a class="list-group-item" href="instructor-payout.html"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
+                                    <a class="list-group-item" href="instructor-setting.html"><i class="bi bi-gear fa-fw me-2"></i>Settings</a>
+                                    <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+                                    <a class="list-group-item text-danger bg-danger-soft-hover" href="sign-in.html"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Responsive offcanvas body END -->
+                </div>
+                <!-- Left sidebar END -->
+    
+                <!-- Main content START -->
+                <div class="col-xl-9">
+                    <!-- Card START -->
+                    <div class="card border bg-transparent rounded-3">
+                        <!-- Card header START -->
+                        <div class="card-header bg-transparent border-bottom">
+                            <h3 class="mb-0">Students List</h3>
+                        </div>
+                        <!-- Card header END -->
+    
+                        <!-- Card body START -->
+                        <div class="card-body">
+    
+                            <!-- Search and select START -->
+                            <div class="row g-3 align-items-center justify-content-between mb-4">
+                                <!-- Search -->
+                                <div class="col-md-8">
+                                    <form class="rounded position-relative">
+                                        <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                                    <i class="fas fa-search fs-6 "></i>
+                                </button>
+                                    </form>
+                                </div>
+    
+                                <!-- Select option -->
+                                <div class="col-md-3">
+                                    <!-- Short by filter -->
+                                    <form>
+                                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
+                                            <option value="">Sort by</option>
+                                            <option>Free</option>
+                                            <option>Newest</option>
+                                            <option>Oldest</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Search and select END -->
+    
+                            <!-- Student list table START -->
+                            <div class="table-responsive border-0">
+                                <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" >
+                                    <!-- Table head -->
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 rounded-start">Student name</th>
+                                            <th scope="col" class="border-0">Student last name</th>
+                                            <th scope="col" class="border-0">Speciality</th>
+                                            <th scope="col" class="border-0">Level</th>
+                                            <th scope="col" class="border-0 rounded-end">Action</th>
+                                        </tr>
+                                    </thead>
+    
+                                    <!-- Table body START -->
+                                    <tbody>
+                                        <!-- Table item -->
+                                        <tr >
+                                            <!-- Table data -->
+                                            <td >
+                                                <div class="d-flex align-items-center position-relative">
+                                                    <!-- Image -->
+                                                    <div class="avatar avatar-md mb-2 mb-md-0">
+                                                        <img src="assets/images/avatar/01.jpg" class="rounded" alt="">
+                                                    </div>
+                                                    <div class="mb-0 ms-2">
+                                                        <!-- Title -->
+                                                        <h6 class="mb-0"><a href="#" class="stretched-link"></a></h6>
+                                                        <!-- tel -->
+                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+    
+                                            <!-- Table data -->
+                                            <td class="text-center text-sm-start">
+                                                <div class=" overflow-hidden">
+                                                    <h6 class="mb-0"></h6>
+                                                    
+                                                </div>
+                                            </td>
+    
+                                            <!-- Table data -->
+                                            <td></td>
+    
+                                            <!-- Table data -->
+                                            <td></td>
+    
+                                            <!-- Table data -->
+                                            <td>
+                                                <button class="btn btn-danger" (click)="deleteStudent(student._id)">Delete</button>&nbsp;
+                                                <button class="btn btn-info" (click)="editStudent(student._id)">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- Table body END -->
+                                </table>
+                            </div>
+                            <!-- Student list table END -->
+                        </div>
+                        <!-- Card body START -->
+                    </div>
+                    <!-- Card END -->
+                </div>
+                <!-- Main content END -->
+            </div><!-- Row END -->
+        </div>
+    </section>
+    <!-- =======================
+    Inner part END -->
+    
+    </main>
+
